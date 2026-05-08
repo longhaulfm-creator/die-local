@@ -1,44 +1,90 @@
 export default function Footer() {
-	return (
-		<footer className="footer sm:footer-horizontal bg-base-200 text-base-content p-10">
-  <aside>
-    <svg
-      width="50"
-      height="50"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-      fillRule="evenodd"
-      clipRule="evenodd"
-      className="fill-current">
-      <path
-        d="M22.672 15.226l-2.432.811.841 2.515c.33 1.019-.209 2.127-1.23 2.456-1.15.325-2.148-.321-2.463-1.226l-.84-2.518-5.013 1.677.84 2.517c.391 1.203-.434 2.542-1.831 2.542-.88 0-1.601-.564-1.86-1.314l-.842-2.516-2.431.809c-1.135.328-2.145-.317-2.463-1.229-.329-1.018.211-2.127 1.231-2.456l2.432-.809-1.621-4.823-2.432.808c-1.355.384-2.558-.59-2.558-1.839 0-.817.509-1.582 1.327-1.846l2.433-.809-.842-2.515c-.33-1.02.211-2.129 1.232-2.458 1.02-.329 2.13.209 2.461 1.229l.842 2.515 5.011-1.677-.839-2.517c-.403-1.238.484-2.553 1.843-2.553.819 0 1.585.509 1.85 1.326l.841 2.517 2.431-.81c1.02-.33 2.131.211 2.461 1.229.332 1.018-.21 2.126-1.23 2.456l-2.433.809 1.622 4.823 2.433-.809c1.242-.401 2.557.484 2.557 1.838 0 .819-.51 1.583-1.328 1.847m-8.992-6.428l-5.01 1.675 1.619 4.828 5.011-1.674-1.62-4.829z"></path>
-    </svg>
-    <p>
-      ACME Industries Ltd.
-      <br />
-      Providing reliable tech since 1992
-    </p>
-  </aside>
-  <nav>
-    <h6 className="footer-title">Services</h6>
-    <a className="link link-hover">Branding</a>
-    <a className="link link-hover">Design</a>
-    <a className="link link-hover">Marketing</a>
-    <a className="link link-hover">Advertisement</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
-  </nav>
-  <nav>
-    <h6 className="footer-title">Legal</h6>
-    <a className="link link-hover">Terms of use</a>
-    <a className="link link-hover">Privacy policy</a>
-    <a className="link link-hover">Cookie policy</a>
-  </nav>
-</footer>
-	);
+  const phoneNumber = "+27613684724"; // Replace with Lee's actual business number
+  const waLink = `https://wa.me/${phoneNumber.replace('+', '')}`;
+
+  return (
+    <footer 
+      className="relative footer sm:footer-horizontal justify-center items-center sm:items-start sm:justify-between text-white p-10 pt-16 overflow-hidden bg-center"
+      style={{ 
+        backgroundImage: "url('/wood-texture.jpg')",
+      }}
+    >
+      {/* 1. Seamless Overlay */}
+      <div 
+        className="absolute inset-0 z-0 pointer-events-none"
+        style={{
+          background: `linear-gradient(to bottom, #000000 0%, rgba(0,0,0,0.6) 20%, rgba(0,0,0,0.6) 80%, #000000 100%)`
+        }}
+      ></div>
+
+      {/* 2. Brand & Copyright */}
+      <aside className="relative z-10">
+        <h2 className="font-logo text-2xl uppercase font-black drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+          Local <span className="text-brand-red">Bar and Grill</span>
+        </h2>
+        <p className="font-tagline text-xs uppercase tracking-widest opacity-80 mt-2">
+          Where good decisions are made.
+        </p>
+        <div className="mt-6 text-sm opacity-60">
+          <p>© {new Date().getFullYear()} Anvil Development</p>
+          <p>Southport, KwaZulu-Natal</p>
+        </div>
+      </aside>
+
+      {/* 3. Venue Links */}
+      <nav className="relative z-10">
+        <h6 className="footer-title text-brand-red opacity-100 border-brand-red drop-shadow-[0_1px_2px_rgba(0,0,0,1)]">
+          The Bar and Restaurant
+        </h6>
+        <a className="link link-hover opacity-80 hover:opacity-100 hover:text-brand-red transition-all">Our menu</a>
+        <a className="link link-hover opacity-80 hover:opacity-100 hover:text-brand-red transition-all">Our activities</a>
+        <a className="link link-hover opacity-80 hover:opacity-100 hover:text-brand-red transition-all">Events</a>
+        <a className="link link-hover opacity-80 hover:opacity-100 hover:text-brand-red transition-all">Reservations</a>
+      </nav>
+
+      {/* 4. Social Media with Logos */}
+      <nav className="relative z-10">
+        <h6 className="footer-title text-brand-red opacity-100 border-brand-red drop-shadow-[0_1px_2px_rgba(0,0,0,1)]">
+          Social Media
+        </h6>
+        <div className="grid grid-cols-2 gap-x-8 gap-y-3">
+          <a href="#" className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:text-brand-red transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+            <span>Facebook</span>
+          </a>
+          <a href="#" className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:text-brand-red transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line></svg>
+            <span>Instagram</span>
+          </a>
+          <a href="#" className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:text-brand-red transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="4"></circle><line x1="21.17" x2="12" y1="8" y2="8"></line><line x1="3.95" x2="8.54" y1="6.06" y2="14"></line><line x1="10.88" x2="15.46" y1="21.94" y2="14"></line></svg>
+            <span>Google</span>
+          </a>
+          <a href="#" className="flex items-center gap-2 opacity-80 hover:opacity-100 hover:text-brand-red transition-all">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"></path></svg>
+            <span>TikTok</span>
+          </a>
+        </div>
+      </nav>
+
+      {/* 5. WhatsApp Business Direct Link */}
+      <nav className="relative z-10">
+        <h6 className="footer-title text-brand-red opacity-100 border-brand-red drop-shadow-[0_1px_2px_rgba(0,0,0,1)]">
+          Direct Chat
+        </h6>
+        <a 
+          href={waLink}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="group flex flex-col gap-1 p-3 rounded-lg border border-white/10 bg-black/20 hover:bg-brand-red/10 hover:border-brand-red transition-all"
+        >
+          <div className="flex items-center gap-2">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-green-500 group-hover:text-brand-red"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+            <span className="font-bold text-sm tracking-tight">WhatsApp Business</span>
+          </div>
+          <span className="text-xs opacity-60 font-mono pl-7">{phoneNumber}</span>
+        </a>
+      </nav>
+    </footer>
+  );
 }

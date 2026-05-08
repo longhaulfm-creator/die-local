@@ -1,35 +1,80 @@
 export default function HeroBanner() {
-	return (
-		<div
-  className="hero min-h-screen"
-  style={{
-    backgroundImage:
-      "url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp)",
-  }}
->
-  <div className="hero-overlay"></div>
-  <nav>
-	<div className="navbar bg-base-100 shadow-sm">
-  <div className="flex-1">
-    <a className="btn btn-ghost text-xl">daisyUI</a>
-  </div>
-  <div className="flex-none">
-    <button className="btn btn-square btn-ghost">
-      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block h-5 w-5 stroke-current"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path> </svg>
-    </button>
-  </div>
-</div>
-  </nav>
-  <div className="hero-content text-neutral-content text-center">
-    <div className="max-w-md">
-      <h1 className="mb-5 text-5xl font-bold">Hello there</h1>
-      <p className="mb-5">
-        Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem
-        quasi. In deleniti eaque aut repudiandae et a id nisi.
-      </p>
-      <button className="btn btn-primary">Get Started</button>
-    </div>
-  </div>
-</div>
-	);
+  return (
+    <header className="min-h-screen relative overflow-hidden bg-black">
+      {/* 1. The Video Backdrop - Added Saturation and Contrast filters */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover z-0 saturate-150 contrast-125"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+        Your browser does not support the video tag.
+      </video>
+
+      {/* 2. Base Dimmer */}
+      <div className="absolute inset-0 bg-black/30 z-10"></div>
+
+      {/* 3. The Seamless Vignette & Edge Blending */}
+      <div 
+        className="absolute inset-0 z-20 pointer-events-none"
+        style={{
+          background: `
+            linear-gradient(to bottom, #000000 0%, transparent 15%, transparent 85%, #000000 100%),
+            radial-gradient(circle, transparent 30%, rgba(0,0,0,0.4) 70%, rgba(0,0,0,0.8) 100%)
+          `
+        }}
+      ></div>
+
+      {/* 4. Navigation */}
+      <nav className="relative z-30">
+        <div className="navbar bg-transparent px-4">
+          <div className="flex-1">
+            <a className="btn btn-ghost uppercase font-logo font-black text-xl text-white">
+              Local <span className="text-brand-red ml-1 font-sans">Bar and Grill</span>
+            </a>
+          </div>
+          <div className="flex-none px-2">
+            <button className="btn btn-square btn-ghost text-white">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block h-6 w-6 stroke-current">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+      </nav>
+
+      {/* 5. Centered Tagline */}
+      <div className="relative z-30 flex items-center justify-center min-h-[calc(100vh-64px)] text-center text-white px-4">
+        <div className="max-w-2xl">
+          <p className="mb-8 font-tagline text-xl text-brand-red font-bold tracking-[0.2em] uppercase">
+            Where good decisions are made.
+          </p>
+        </div>
+      </div>
+
+      {/* 6. Skip to Content Arrow - Pulses by default, Grows on Hover */}
+      <a 
+        href="#main-content" 
+        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40 group cursor-pointer transition-all duration-500 ease-out hover:scale-125"
+        aria-label="Scroll to main content"
+      >
+        <div className="flex flex-col items-center gap-2">
+          <span className="text-[10px] font-tagline uppercase tracking-widest opacity-40 group-hover:opacity-100 transition-opacity">
+            More
+          </span>
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            className="h-8 w-8 text-white group-hover:text-brand-red transition-all animate-slow-pulse" 
+            fill="none" 
+            viewBox="0 0 24 24" 
+            stroke="currentColor"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          </svg>
+        </div>
+      </a>
+    </header>
+  );
 }
