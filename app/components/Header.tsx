@@ -1,3 +1,6 @@
+import Image from 'next/image';
+import Link from 'next/link';
+
 export default function HeroBanner() {
   return (
     <header className="min-h-screen relative overflow-hidden bg-black">
@@ -29,13 +32,18 @@ export default function HeroBanner() {
 
       {/* 4. Navigation */}
       <nav className="relative z-30">
-        <div className="navbar bg-transparent px-4">
+        <div className="navbar bg-transparent px-10">
           <div className="flex-1">
-            <a className="btn btn-ghost uppercase font-logo font-black text-xl text-white">
-              Local <span className="text-brand-red ml-1 font-sans">Bar and Grill</span>
-            </a>
+            <Link href="/" className="cursor-pointer uppercase font-logo font-black text-xl text-white">
+              Local <span className="text-brand-red ml-1 font-tagline text-2xl">Bar and Grill</span>
+            </Link>
           </div>
-          <div className="flex-none px-2">
+          <div className="flex flex-row items-center px-2">
+		<ul className="menu hidden md:flex menu-vertical lg:menu-horizontal bg-none rounded-box">
+  <li><a>Item 1</a></li>
+  <li><a>Item 2</a></li>
+  <li><a>Item 3</a></li>
+</ul>
             <button className="btn btn-square btn-ghost text-white">
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block h-6 w-6 stroke-current">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
@@ -48,8 +56,18 @@ export default function HeroBanner() {
       {/* 5. Centered Tagline */}
       <div className="relative z-30 flex items-center justify-center min-h-[calc(100vh-64px)] text-center text-white px-4">
         <div className="max-w-2xl">
-          <p className="mb-8 font-tagline text-xl text-brand-red font-bold tracking-[0.2em] uppercase">
-            Where good decisions are made.
+	<Image
+	  src="/local.svg"
+	  width={384}
+	  height={384}
+	  alt="Local Bar and Grill"
+ 	  className="m-auto mb-8"
+        />	
+          <p className="mb-8 font-tagline text-3xl text-brand-red font-bold tracking-[0.2em] uppercase opacity-100 border-brand-red drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            Bar and Grill
+          </p>
+ <p className="mb-8 font-sans text-lg text-white font-light font-bold tracking-[0.2em] opacity-100 border-brand-red drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
+            Where good decisions are made
           </p>
         </div>
       </div>
@@ -57,7 +75,7 @@ export default function HeroBanner() {
       {/* 6. Skip to Content Arrow - Pulses by default, Grows on Hover */}
       <a 
         href="#main-content" 
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 z-40 group cursor-pointer transition-all duration-500 ease-out hover:scale-125"
+        className="absolute bottom-2 left-1/2 -translate-x-1/2 z-40 group cursor-pointer transition-all duration-500 ease-out hover:scale-125"
         aria-label="Scroll to main content"
       >
         <div className="flex flex-col items-center gap-2">
