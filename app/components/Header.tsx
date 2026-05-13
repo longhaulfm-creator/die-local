@@ -113,10 +113,11 @@ export default function Header() {
         <label htmlFor="main-menu-drawer" aria-label="close sidebar" className="drawer-overlay"></label>
         <div className="menu p-10 py-7 w-80 md:w-[450px] min-h-full bg-base-200 text-foreground shadow-2xl flex flex-col">
           <div className="flex justify-between items-center mb-10">
-             <span className="font-logo font-black text-2xl uppercase tracking-tighter">The Local</span>
+             <span className="font-logo font-black text-2xl uppercase tracking-tighter">Local</span>
              <label htmlFor="main-menu-drawer" className="btn btn-sm btn-circle btn-ghost cursor-pointer">✕</label>
           </div>
           <ul className="space-y-5 text-xl uppercase font-tagline tracking-[0.2em] flex-1">
+	    <li><Link href="/menu">About Us</Link></li>
             <li><Link href="/menu">The Food</Link></li>
             <li><Link href="/events">Events</Link></li>
             <li><Link href="/bookings">Reservations</Link></li>
